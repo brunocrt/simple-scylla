@@ -26,9 +26,11 @@ and Java application using DataStax driver.
 
 `CREATE KEYSPACE IF NOT EXISTS test WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 } AND DURABLE_WRITES = true;`
 
-5. Create the table (inside CQL shell)
+5. Change the schema (inside CQL shell)
 
 `USE test`
+
+6. Create the table (inside CQL shell)
 
 `CREATE TABLE IF NOT EXISTS users (
     email      text,
@@ -39,16 +41,16 @@ and Java application using DataStax driver.
 
 7. Insert some data
 
-`INSERT INTO users (email, firstname, lastname) VALUES ('u1@sample.com', 'User1', 'Lastname1');
+ `INSERT INTO users (email, firstname, lastname) VALUES ('u1@sample.com', 'User1', 'Lastname1');`
 
- INSERT INTO users (email, firstname, lastname) VALUES ('u2@sample.com', 'User2', 'Lastname2');
+ `INSERT INTO users (email, firstname, lastname) VALUES ('u2@sample.com', 'User2', 'Lastname2');`
 
- INSERT INTO users (email, firstname, lastname) VALUES ('u3@sample.com', 'User3', 'Lastname3');`
+ `INSERT INTO users (email, firstname, lastname) VALUES ('u3@sample.com', 'User3', 'Lastname3');`
 
-6. Build the application
+8. Build the application
 
 `mvn clean package`
 
-7. Run the Application
+9. Run the Application
 
-`java -jar target\simple-scylla-1.0-SNAPSHOT.jar Lastname3`
+`java -jar target\simple-scylla-1.0-SNAPSHOT.jar u3@sample.com`

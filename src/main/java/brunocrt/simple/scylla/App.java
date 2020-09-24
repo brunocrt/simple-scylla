@@ -15,7 +15,7 @@ public class App {
 
     }
 
-    public void executeQuery(String lastname) {
+    public void executeQuery(String email) {
 
         CqlSession session = null;
 
@@ -28,8 +28,8 @@ public class App {
             .build();
     
             ResultSet rs = session.execute(
-                SimpleStatement.builder("SELECT * FROM users WHERE lastname=? ALLOW FILTERING")
-                        .addPositionalValue(lastname)
+                SimpleStatement.builder("SELECT * FROM users WHERE email=?")
+                        .addPositionalValue(email)
                         .build());
             
             Row row = rs.one();
@@ -59,13 +59,15 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Connecting to ScyllaDB...");
 
-        String lastname = "Lastname1";
+        String email = "u1@sample.com";
         if(args.length > 0) {
-            lastname = args[0];
+            email = args[0];
         }
 
+        System.out.format("Querying user by email %s...", email);
+
         App app = new App();
-        app.executeQuery(lastname);    
+        app.executeQuery(email);    
 
     }
 }
