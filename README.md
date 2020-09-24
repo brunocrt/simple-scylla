@@ -34,9 +34,9 @@ and Java application using DataStax driver.
 
 7. Insert some data
 
-`INSERT INTO users (email, firstname, lastname) VALUES ('u1@sample.com', 'User1', 'Lastname1')`
-`INSERT INTO users (email, firstname, lastname) VALUES ('u2@sample.com', 'User2', 'Lastname2')`
-`INSERT INTO users (email, firstname, lastname) VALUES ('u3@sample.com', 'User3', 'Lastname3')`
+`INSERT INTO users (email, firstname, lastname) VALUES ('u1@sample.com', 'User1', 'Lastname1');
+ INSERT INTO users (email, firstname, lastname) VALUES ('u2@sample.com', 'User2', 'Lastname2');
+ INSERT INTO users (email, firstname, lastname) VALUES ('u3@sample.com', 'User3', 'Lastname3');`
 
 6. Build the application
 `mvn clean package`
