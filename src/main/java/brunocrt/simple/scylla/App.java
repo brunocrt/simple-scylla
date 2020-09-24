@@ -64,7 +64,7 @@ public class App {
             email = args[0];
         }
 
-        System.out.format("Querying user by email %s...", email);
+        System.out.format("Querying user by email %s...\n", email);
 
         App app = new App();
         app.executeQuery(email);    
